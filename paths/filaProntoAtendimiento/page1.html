@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedSênior - Pronto Atendimento</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/globalstyle.css" />
+    <!-- Incluye Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome para los iconos de reloj -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* Custom styles based on the image and template */
+
+      .medsenior-green {
+        color: #00806b; /* MedSênior green color */
+      }
+
+      .card-bg {
+        background-color: #ffffff; /* White background for cards */
+      }
+      .dropdown-border {
+        border-color: #00806b; /* Green border for dropdowns */
+      }
+      .dropdown-arrow {
+        color: #00806b; /* Green arrow for dropdowns */
+      }
+      .yo-tag {
+        background-color: #e6f2ed; /* Light green background for "Yo" tag */
+        color: #00806b; /* Green text for "Yo" tag */
+      }
+      .response-time-card {
+        background-color: #e6f2ed; /* Light green background for response time card */
+        border-left: 5px solid #00806b; /* Green left border */
+      }
+      .radio-option {
+        border: 1px solid #d1d5db; /* Default border color */
+      }
+      .radio-option.selected {
+        border-color: #00806b; /* Green border when selected */
+      }
+      .radio-dot {
+        background-color: #00806b; /* Green dot for selected radio */
+      }
+
+      /* Splash screen specific styles */
+      #splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f0fdf4; /* Light green background */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        transition: opacity 0.5s ease-in-out;
+      }
+      #splash-screen.hidden {
+        opacity: 0;
+        pointer-events: none; /* Allows clicks to pass through when hidden */
+      }
+      .spinner {
+        border: 8px solid #e6f2ed; /* Light green */
+        border-top: 8px solid #00806b; /* MedSênior green */
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      /* Removed splash-buttons style as buttons are no longer needed */
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- Splash Screen -->
+    <div
+      id="splash-screen"
+      class="flex flex-col items-center justify-center p-4 text-center"
+    >
+      <div class="spinner mb-6"></div>
+      <p id="splash-message" class="text-2xl font-semibold text-gray-800 mb-8">
+        Avaliando seus sintomas...
+      </p>
+      <!-- Removed splash-actions div and buttons -->
+    </div>
+
+    <!-- Main Content Container -->
+    <div id="main-content" class="min-h-screen flex flex-col hidden">
+      <!-- Header -->
+      <header
+        class="header-bg shadow-sm py-4 px-4 flex items-center justify-between h-[80px] pe-[48px] border-b border-b-[rgb(150,202,75)]"
+      >
+        <div class="flex items-center space-x-3">
+          <!-- Hamburger menu icon -->
+          <button class="text-gray-600 focus:outline-none">
+            <svg
+              class="w-6 h-6 medsenior-green"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+          <h1 class="text-xl font-semibold text-gray-800">
+            Pronto Atendimento
+          </h1>
+        </div>
+        <div class="flex items-center space-x-4"></div>
+        <div class="flex items-center space-x-4">
+          <button class="text-gray-600 focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              ></path>
+            </svg>
+          </button>
+          <button class="text-gray-600 focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-grow p-4 mx-auto w-full max-w-md">
+        <!-- Patient Section -->
+        <div class="mb-6 mt-4">
+          <h2 class="text-lg font-semibold text-gray-800 mb-3">Paciente</h2>
+          <div class="relative">
+            <select
+              class="block appearance-none w-full bg-white border border-gray-300 dropdown-border text-gray-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-medsenior-green"
+            >
+              <option>Manuel Farías</option>
+            </select>
+            <div
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dropdown-arrow"
+            >
+              <span
+                class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none rounded-full yo-tag ml-2"
+                style="font-size: 16px"
+                >Eu</span
+              >
+              <svg
+                class="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Waiting Information Section -->
+        <div class="mb-6 mt-6 bg-white p-6 rounded-lg shadow-md text-center">
+          <p
+            class="text-lg font-semibold text-gray-800 mb-4"
+            style="font-size: 20px"
+          >
+            Situação Atual
+          </p>
+          <div class="flex mb-3">
+            <i class="fa-solid fa-users text-2xl medsenior-green mr-3"></i>
+            <p class="text-gray-700" style="font-size: 20px">
+              Há <span class="font-semibold">13 pessoas</span> aguardando antes
+              de você.
+            </p>
+          </div>
+          <div class="flex mb-4">
+            <i class="far fa-clock text-2xl medsenior-green mr-3"></i>
+            <p class="text-gray-700" style="font-size: 20px">
+              O tempo de espera estimado é de
+              <span class="font-semibold">3 horas</span>.
+            </p>
+          </div>
+          <hr class="my-4" />
+          <div class="text-center">
+            <h3
+              class="font-semibold text-gray-800 mb-2"
+              style="font-size: 20px"
+            >
+              Unidade Serra
+            </h3>
+            <p class="text-gray-700">
+              Rodovia Norte Sul, 5790, Jardim Limoeiro.
+            </p>
+            <p class="text-gray-700">Trevo da Rodovia Norte Sul x ES 010</p>
+          </div>
+          <p class="text-sm text-gray-600 mt-4">
+            Com base nessas informações, você pode decidir se deseja reservar um
+            lugar.
+          </p>
+        </div>
+      </main>
+
+      <!-- Fixed Bottom Button -->
+      <div class="p-4 bg-white shadow-lg rounded-t-lg sticky bottom-0 w-full">
+        <a
+          href="/paths/filaProntoAtendimiento/page2.html"
+          class="button-green text-white font-semibold py-3 px-6 rounded-full w-full flex items-center justify-center space-x-2 shadow-lg mx-auto"
+          style="max-inline-size: 42ch"
+        >
+          <span>Reservar</span>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const splashScreen = document.getElementById("splash-screen");
+        const splashMessage = document.getElementById("splash-message");
+        const mainContent = document.getElementById("main-content");
+
+        // Simulate symptom evaluation loading
+        setTimeout(() => {
+          splashMessage.textContent =
+            "Sua avaliação de sintomas está completa.";
+          // Hide spinner
+          splashScreen.querySelector(".spinner").classList.add("hidden");
+
+          // After a short delay, hide the splash screen and show the main content
+          setTimeout(() => {
+            splashScreen.classList.add("hidden");
+            mainContent.classList.remove("hidden");
+          }, 1500); // Wait 1.5 seconds after message change before transitioning
+        }, 3000); // Simulate 3 seconds of initial loading
+      });
+    </script>
+  </body>
+</html>

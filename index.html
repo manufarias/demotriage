@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedSênior - Pronto Atendimento</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/globalstyle.css" />
+    <!-- Incluye Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome para los iconos de reloj -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body class="antialiased">
+    <div class="min-h-screen flex flex-col">
+      <!-- Header -->
+      <header
+        class="header-bg shadow-sm py-4 px-4 flex items-center justify-between h-[80px] ps-[24px] pe-[48px] border-b border-b-[rgb(150,202,75)]"
+      >
+        <div class="flex items-center space-x-3">
+          <div class="flex items-center h-[48px]">
+            <img
+              src="/assets/medsenior-3XYNf5J-.svg"
+              alt=""
+              style="background-size: cover"
+            />
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button class="text-gray-600 focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              ></path>
+            </svg>
+          </button>
+          <button class="text-gray-600 focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-grow p-4 mx-auto" style="max-inline-size: 66ch">
+        <h1 class="text-2xl font-semibold text-gray-800 mb-6 mt-4">
+          Pronto Atendimento
+        </h1>
+
+        <!-- Card: Um processo simples -->
+        <div class="card-bg p-6 rounded-lg shadow-md mb-6">
+          <h2 class="text-lg font-medium text-gray-800 mb-4">Como funciona:</h2>
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <i class="far fa-clock text-2xl medsenior-green mr-4 mt-1"></i>
+              <p class="text-gray-700">
+                Primeiro, reserve seu lugar de onde estiver
+              </p>
+            </div>
+            <div class="flex items-center">
+              <i
+                class="fa-solid fa-clipboard-check text-2xl medsenior-green mr-4 mt-1"
+              ></i>
+              <p class="text-gray-700">
+                Em seguida, vá até o balcão para retirar sua ficha de admissão
+              </p>
+            </div>
+            <div class="flex items-center">
+              <i
+                class="fa-solid fa-user-doctor text-2xl medsenior-green mr-4 mt-1"
+              ></i>
+              <p class="text-gray-700">
+                Finalmente, entre na consulta de pronto atendimento
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Quando reservar lugar no pronto atendimento? -->
+        <div class="mb-6 mt-12">
+          <h2 class="text-lg font-semibold text-gray-800 mb-3">
+            Quando reservar lugar no pronto atendimento?
+          </h2>
+          <p class="text-gray-700 mb-2">
+            Sempre que tiver uma consulta em que sua vida não corra risco.
+          </p>
+          <p class="text-gray-700">
+            Em caso de emergência, dirija-se diretamente ao pronto atendimento.
+          </p>
+        </div>
+      </main>
+
+      <!-- Fixed Bottom Button -->
+      <div class="p-4 bg-white shadow-lg rounded-t-lg sticky bottom-0 w-full">
+        <a
+          href="/paths/prontoAtendimiento/page0.html"
+          class="button-green text-white font-semibold py-3 px-6 rounded-full w-full flex items-center justify-center space-x-2 shadow-lg mx-auto"
+          style="max-inline-size: 42ch"
+        >
+          <span>Reservar lugar</span>
+          <svg
+            class="w-5 h-5 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

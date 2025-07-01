@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedSênior - Pronto Atendimento</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/globalstyle.css" />
+    <!-- Incluye Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome para los iconos de reloj -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* Custom styles based on the image and template */
+
+      .medsenior-green {
+        color: #00806b; /* MedSênior green color */
+      }
+
+      .card-bg {
+        background-color: #ffffff; /* White background for cards */
+      }
+      .dropdown-border {
+        border-color: #00806b; /* Green border for dropdowns */
+      }
+      .dropdown-arrow {
+        color: #00806b; /* Green arrow for dropdowns */
+      }
+      .yo-tag {
+        background-color: #e6f2ed; /* Light green background for "Yo" tag */
+        color: #00806b; /* Green text for "Yo" tag */
+      }
+      .response-time-card {
+        background-color: #e6f2ed; /* Light green background for response time card */
+        border-left: 5px solid #00806b; /* Green left border */
+      }
+      .radio-option {
+        border: 1px solid #d1d5db; /* Default border color for the entire card */
+        transition: border-color 0.2s ease-in-out; /* Smooth transition for border color */
+      }
+      .radio-option.selected {
+        border-color: #00806b; /* Green border for the entire card when selected */
+      }
+
+      /* Styling for the custom radio circle (the div with class radio-custom) */
+      .radio-custom {
+        border-color: #d1d5db; /* Default border color for the custom radio circle */
+        transition: border-color 0.2s ease-in-out; /* Smooth transition for border color */
+      }
+      /* When the parent .radio-option has 'selected' class, make the custom radio circle's border green */
+      .radio-option.selected .radio-custom {
+        border-color: #00806b;
+      }
+
+      /* Styling for the custom radio dot (the div with class radio-dot) */
+      .radio-dot {
+        background-color: transparent; /* Default transparent */
+        transition: background-color 0.2s ease-in-out; /* Smooth transition for background color */
+      }
+      /* When the parent .radio-option has 'selected' class, make the inner dot green */
+      .radio-option.selected .radio-dot {
+        background-color: #00806b; /* Green dot when selected */
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <div class="min-h-screen flex flex-col">
+      <!-- Header -->
+      <header
+        class="header-bg shadow-sm py-4 px-4 flex items-center justify-between h-[80px] pe-[48px] border-b border-b-[rgb(150,202,75)]"
+      >
+        <div class="flex items-center space-x-3">
+          <!-- Hamburger menu icon -->
+          <button class="text-gray-600 focus:outline-none">
+            <svg
+              class="w-6 h-6 medsenior-green"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+          <h1 class="text-xl font-semibold text-gray-800">
+            Pronto Atendimento
+          </h1>
+        </div>
+        <div class="flex items-center space-x-4"></div>
+        <div class="flex items-center space-x-4">
+          <button class="text-gray-600 focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              ></path>
+            </svg>
+          </button>
+          <button class="text-gray-600 focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-grow p-4 mx-auto w-full max-w-md">
+        <!-- Patient Section -->
+        <div class="mb-6 mt-4">
+          <h2 class="text-lg font-semibold text-gray-800 mb-3">Paciente</h2>
+          <div class="relative">
+            <select
+              class="block appearance-none w-full bg-white border border-gray-300 dropdown-border text-gray-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-medsenior-green"
+            >
+              <option>Manuel Farías</option>
+            </select>
+            <div
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dropdown-arrow"
+            >
+              <span
+                class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none rounded-full yo-tag ml-2"
+                style="font-size: 16px"
+                >Eu</span
+              >
+              <svg
+                class="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Self-evaluation Section -->
+        <div class="mb-6 mt-6">
+          <h2 class="text-lg font-semibold text-gray-800 mb-3">
+            Autoavaliação
+          </h2>
+          <p class="text-gray-700 mb-4" style="font-size: 20px">
+            Você está sentindo dor ou pressão intensa no peito (suspeita de
+            infarto)?
+          </p>
+
+          <div class="space-y-4">
+            <!-- Radio Option: Não -->
+            <label
+              class="flex items-center bg-white rounded-lg p-4 shadow-sm cursor-pointer radio-option"
+            >
+              <input
+                type="radio"
+                id="naoAutoavaliacao"
+                name="autoavaliacao"
+                value="nao"
+                checked
+                class="hidden"
+              />
+              <div
+                class="radio-custom w-5 h-5 rounded-full border-2 flex items-center justify-center mr-3"
+              >
+                <div class="radio-dot w-3 h-3 rounded-full"></div>
+              </div>
+              <span class="text-gray-700">Não</span>
+            </label>
+
+            <!-- Radio Option: Sim -->
+            <label
+              class="flex items-center bg-white rounded-lg p-4 shadow-sm cursor-pointer radio-option"
+            >
+              <input
+                type="radio"
+                id="simAutoavaliacao"
+                name="autoavaliacao"
+                value="sim"
+                class="hidden"
+              />
+              <div
+                class="w-5 h-5 rounded-full border-2 flex items-center justify-center mr-3 radio-custom"
+              >
+                <div class="w-3 h-3 rounded-full radio-dot"></div>
+              </div>
+              <span class="text-gray-700">Sim</span>
+            </label>
+          </div>
+        </div>
+      </main>
+
+      <!-- Fixed Bottom Button -->
+      <div class="p-4 bg-white shadow-lg rounded-t-lg sticky bottom-0 w-full">
+        <a
+          href="/paths/nivel1/page2.html"
+          class="button-green text-white font-semibold py-3 px-6 rounded-full w-full flex items-center justify-center space-x-2 shadow-lg mx-auto"
+          style="max-inline-size: 42ch"
+          id="nextButtonLink"
+        >
+          <span>Próximo</span>
+          <svg
+            class="w-5 h-5 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      // Get references to the radio buttons and the link
+      const naoRadio = document.getElementById("naoAutoavaliacao");
+      const simRadio = document.getElementById("simAutoavaliacao");
+      const nextButtonLink = document.getElementById("nextButtonLink");
+      const radioOptions = document.querySelectorAll(".radio-option"); // Get all label elements
+
+      // Define the paths
+      const naoPath = "/paths/nivel1/page2.html"; // Path for "Nao"
+      const simPath = "/paths/nivel1/atendimento.html"; // Path for "Sim"
+
+      /**
+       * Updates the href of the nextButtonLink based on the selected radio button.
+       * Also updates the 'selected' class on the radio option labels for visual feedback.
+       */
+      function updateLinkAndSelection() {
+        // Remove 'selected' class from all radio option labels
+        radioOptions.forEach((option) => {
+          option.classList.remove("selected");
+        });
+
+        if (naoRadio.checked) {
+          nextButtonLink.href = naoPath;
+          // Add 'selected' class to the parent label of the checked radio button
+          naoRadio.closest(".radio-option").classList.add("selected");
+        } else if (simRadio.checked) {
+          nextButtonLink.href = simPath;
+          // Add 'selected' class to the parent label of the checked radio button
+          simRadio.closest(".radio-option").classList.add("selected");
+        }
+        // Optional: Log the current href to the console for debugging
+        console.log("Current link href:", nextButtonLink.href);
+      }
+
+      // Set the default selection and link href when the page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        naoRadio.checked = true; // Ensure "Nao" is checked by default
+        updateLinkAndSelection(); // Set the initial href and selection class
+      });
+
+      // Add event listeners to the radio buttons to call updateLinkAndSelection on change
+      naoRadio.addEventListener("change", updateLinkAndSelection);
+      simRadio.addEventListener("change", updateLinkAndSelection);
+    </script>
+  </body>
+</html>

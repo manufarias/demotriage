@@ -1,0 +1,31 @@
+body {
+  font-size: 1.125rem;
+  font-family: "Ubuntu", sans-serif;
+  background-color: #f0f2f5; /* Color de fondo similar al de la imagen */
+}
+
+p {
+  font-size: 1.125rem;
+}
+.header-bg {
+  background-color: #ffffff; /* Fondo blanco para el encabezado */
+}
+.medsenior-green {
+  color: #2e7d32; /* Verde MedSênior */
+}
+.medsenior-logo-text {
+  color: #2e7d32; /* Verde MedSênior */
+  font-weight: 600;
+}
+.medsenior-logo-leaf {
+  color: #4caf50; /* Un verde ligeramente diferente para la hoja */
+}
+.card-bg {
+  background-color: #ffffff;
+}
+.button-green {
+  background-color: #2e7d32; /* Verde MedSênior para el botón */
+}
+.button-green:hover {
+  background-color: #388e3c; /* Un verde más oscuro al pasar el ratón */
+}
